@@ -13,8 +13,8 @@ Si organizas regularmente actividades que requiren gestionar un listado de parti
 Por ejemplo para: 
 
 - Organización de rutas o salidas senderistas, ciclistas, etc. (_Inscríbete para saber cuántos autobuses o habitaciones de hotel necesitamos_).
-- Organización de seminarios, conferencias (_Plazas limitadas, inscríbete hasta el día dd/mm/aaaa_)
-- Organización interna de actividades empresariales, como la típica comida o cena de empresa (_Confirmadme asistencia y preferencia de menú_) .
+- Organización de seminarios, conferencias (_Plazas limitadas, inscríbete antes del día dd/mm/aaaa_).
+- Organización interna de actividades empresariales, como la típica comida o cena de empresa (_Confirma tu asistencia y preferencia de menú_).
 		
 ## Características
 
@@ -31,6 +31,5 @@ Por ejemplo para:
 
 ## Instalación
 
-1. Copiar todo el contenido a una carpeta del servidor web.
-2. No se necesita nada más, ya puedes empezar a usar ENROL ME!.
-
+1. Copiar todo a una carpeta del servidor web.
+2. Ya puedes empezar a usar ENROL ME!.
