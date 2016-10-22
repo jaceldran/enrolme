@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # ENROL ME!
 
 ```
@@ -48,11 +46,4 @@ Por ejemplo:
 2. No necesitas crear ni configurar ninguna base de datos MySQL.
 
 3. Ya puedes empezar a usar ENROL ME!. Si la carpeta se llama "enrolme", la dirección de acceso será http://example.com/enrolme.  
-=======
-# enrolme
-Inscripciones a actividades o eventos
->>>>>>> 4ad4bf842d4f8ff32ad2d10358d485e12ea2587f
-=======
-# enrolme
-Inscripciones a actividades o eventos
->>>>>>> 4ad4bf842d4f8ff32ad2d10358d485e12ea2587f
+
