@@ -1,10 +1,16 @@
 <?php
+/*
+ * Helpers. Funciones útiles.
+ */
 
 /*
- * Renderizado de un objeto simple.
+ * Representa un objeto con una plantilla.
  * @param {array} $data
+ *	El objeto a representar. Array asociativo de atributos y valores.
  * @param {string} $template.
- * @return {string} $render Renderizado del objeto con el $template.
+ *	La plantilla utilizada para representar el objeto.
+ * @return {string} $render 
+ *	Representación del objeto con la plantilla.
  */
 function render($data, $template)
 {
@@ -18,8 +24,10 @@ function render($data, $template)
 /*
  * Parseo básico de un archivo en formato "ini" pero el contenido
  * va directamente en las secciones.
- * @param {string} $template Ruta completa al archivo a parsear.
- * @return {array} $parse Lista asociativa [seccion] => contenido. 
+ * @param {string} $template 
+ *	Ruta completa al archivo a parsear.
+ * @return {array} $parse 
+ *	Lista asociativa [seccion] => contenido. 
  */
 function parse_ini_sections($path)
 {
@@ -41,8 +49,10 @@ function parse_ini_sections($path)
 
 /*
  * Representa todas los argumentos recibidos en formato print_r. 
- * @param {mixed} lista indeterminada de argumentos.
- * @return {string} $map.
+ * @param {mixed} 
+ *	Lista indeterminada de argumentos.
+ * @return {string} 
+ *	Representación de los argumentos recibidos.
  */
 function map()
 {	

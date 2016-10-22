@@ -89,7 +89,7 @@ class StorageArray
 
 	/*
 	 * Localiza un elemento por un valor de atributo.
-	 * Requiere que exista el correspondiente archívo de índice.
+	 * Requiere que exista el correspondiente archivo de índice.
 	 * @param {string} $attr
 	 *	Nombre del atributo.
 	 * @param {string} $value
@@ -109,7 +109,8 @@ class StorageArray
 
 	/*
 	 * Genera el archivo de almacenamiento actual.
-	 * Es un archivo PHP que contiene un array con los datos gestionados.
+	 * Es un archivo PHP que contiene un array con los datos gestionados
+	 * y otra información relativa al propio fichero.
 	 */
 	function build()
 	{		
@@ -128,7 +129,6 @@ class StorageArray
 
 	/*
 	 * Genera un archivo de índice nombrado como  "[key]-by-[attr]".
-	 * Es un archivo PHP que contiene un array con los datos gestionados.
 	 * @param {string} $attr
 	 *	El atributo para construir el indice. No debe haber duplicados.
 	 */	
@@ -163,6 +163,8 @@ class StorageArray
 	 *	El contenido del archivo
 	 * @param {string} $file
 	 *	Ruta física del archivo a guardar.
+	 * @return {boolean}
+	 *	Resultado de la operación.
 	 */
 	function save($content, $file=null)
 	{

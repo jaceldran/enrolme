@@ -107,7 +107,7 @@ class Response
 	 *
 	 * Ejemplo: 	
 	 *	response->add("Título de página, "title");
-	 *	response->title(); // <<== return "Título de página"
+	 *	response->title(); // <<== devuelve "Título de página"
 	 * 
 	 * @param {string} $key
 	 *	Método invocado, usado para identificar el buffer.

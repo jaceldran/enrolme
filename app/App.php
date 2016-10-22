@@ -36,7 +36,7 @@ class App
 				$this->request->setCurrent($current);
 			}
 
-			// instanciar objeto y lanzar método con parámetros
+			// instanciar objeto e invocar método con parámetros.
 			$class = $current['class'];
 			$method = $current['method'];
 			$params = $current['params'];
