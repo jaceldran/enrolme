@@ -6,44 +6,31 @@ status: en desarrollo
 
 ENROL ME! es una aplicación ultra-sencilla para incorporar en tu Web de forma inmediata un sistema de inscripción a actividades o eventos.
 
-Si organizas habitualmente actividades que requiran disponer de un listado de participantes y habitualmente lo que haces es solicitar que te envíen un correo electrónico, esta aplicación te puede interesar.
+Puedes establecer la fecha y hora de inicio y finalización de la actividad así como la fecha y hora de apertura y cierre del plazo de inscripción.
 
-Por ejemplo: 
+Si organizas regularmente actividades que requiren gestionar un listado de participantes y el método para inscribirse es mediante un correo electrónico o llamada telefónica, esta aplicación te puede interesar.
 
-- Organización de rutas o salidas 
-	senderistas, ciclistas, etc. (_Inscríbete para saber cuántos autobuses o habitaciones de hotel necesitamos_).
+Por ejemplo para: 
 
+- Organización de rutas o salidas senderistas, ciclistas, etc. (_Inscríbete para saber cuántos autobuses o habitaciones de hotel necesitamos_).
 - Organización de seminarios, conferencias (_Plazas limitadas, inscríbete hasta el día dd/mm/aaaa_)
-
-- Organización interna de actividades empresariales, desde cena de empresas (_Confirmadme asistencia y preferencia de menú_) .
+- Organización interna de actividades empresariales, como la típica comida o cena de empresa (_Confirmadme asistencia y preferencia de menú_) .
 		
 ## Características
 
 - Diseño adaptado a móvil.
-
-- No requiere base de datos MySQL. 
-
+- No requiere base de datos MySQL.
 - Administración de la lista de actividades y participantes.
-
-- Programación de publicación.
-
-- Informes de datos de participantes basados en plantillas personalizadas, por ejemplo:
-
+- Programación de apertura y cierre de plazo de inscripción.
+- Informes de participantes basados en plantillas personalizadas, por ejemplo:
 	- Hojas de firmas.
 	- Control de asistencia.
-	- etc.
-	
-- Exportación en formatos habituales para intercambio de datos con otros sistemas:
-
-	- JSON
-	- CSV
-	- XML
+	- Listado impreso de teléfonos, correos, etc.
+	- etc.	
+- Exportación a formatos estándar para el intercambio de datos con otros sistemas (JSON, CSV, XML...).
 
 ## Instalación
 
-1. Copia todo el contenido a una carpeta de tu servidor web. Por ejemplo a la carpeta "enrolme".
-
-2. No necesitas crear ni configurar ninguna base de datos MySQL.
-
-3. Ya puedes empezar a usar ENROL ME!. Si la carpeta se llama "enrolme", la dirección de acceso será http://example.com/enrolme.  
+1. Copiar todo el contenido a una carpeta del servidor web.
+2. No se necesita nada más, ya puedes empezar a usar ENROL ME!.
 
