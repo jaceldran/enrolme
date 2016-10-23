@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Montserrat");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  font-size: medium;
+  color: #333; }
+
+*::after, *::before {
+  box-sizing: border-box; }
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+h1 {
+  font-size: 225%; }
+
+h2 {
+  font-size: 200%; }
+
+h3 {
+  font-size: 175%; }
+
+h4 {
+  font-size: 150%; }
+
+h5 {
+  font-size: 125%; }
+
+h6 {
+  font-size: 100%; }
+
+p, ul, ol, dl, hr {
+  margin: 10px 0; }
+
+li, dd {
+  margin-bottom: 10px; }
+
+dl {
+  padding-left: 25px; }
+
+dt {
+  font-weight: bold;
+  margin-bottom: 2px; }
+
+dd {
+  margin-left: 10px; }
+
+hr {
+  height: 0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0 0 0; }
+
+img {
+  max-width: 100%; }
+
+figure {
+  position: relative; }
+
+body {
+  overflow: hidden; }
+
+main {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  z-index: 0;
+  overflow: auto; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  line-height: 60px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+  header .brand {
+    font-weight: bold;
+    padding: 0 15px;
+    font-size: large;
+    font-family: montserrat; }
+  header .open-panel {
+    border: 0;
+    background-color: transparent;
+    font-weight: bold;
+    line-height: inherit;
+    font-size: large; }
+  header .action {
+    cursor: pointer;
+    padding: 0 15px; }
+
+header nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  transition: all .20s;
+  transform: translateX(-100%); }
+  header nav .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+  header nav .title {
+    padding: 0 15px;
+    font-weight: bold;
+    font-size: large;
+    font-family: montserrat; }
+  header nav .close-panel {
+    line-height: inherit; }
+  header nav a {
+    display: block; }
+    header nav a:hover {
+      background-color: rgba(0, 0, 0, 0.05); }
+
+.panel-close {
+  transform: translateX(-100%); }
+
+.panel-open {
+  transform: translateX(0%); }
+
+@media (min-width: 768px) {
+  header nav {
+    display: flex;
+    position: static;
+    transition: none !important;
+    transform: translateX(0%) !important;
+    width: auto; }
+  header nav .header {
+    display: none; }
+  header .open-panel {
+    display: none; } }
+label {
+  font-weight: bold; }
+
+input, select, textarea {
+  font-size: medium;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  width: 100%; }
+
+button, .button {
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  padding: 0 35px;
+  display: inline-block;
+  width: auto;
+  line-height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.15); }
+
+legend {
+  font-weight: bold; }
+
+form .control {
+  margin-bottom: 5px; }
+
+fieldset {
+  border-style: solid;
+  border-top-width: 1px;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-color: rgba(0, 0, 0, 0.15); }
+  fieldset.inline {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap; }
+  fieldset.inline .control {
+    margin-right: 10px; }
+  fieldset.no-border legend {
+    padding: 0; }
+
+.inline {
+  display: inline; }
+
+.no-border {
+  border: none; }
+
+/* typo */
+button, .button {
+  font-family: montserrat;
+  text-transform: uppercase; }
+
+/* color */
+header {
+  background-color: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+  header nav {
+    background-color: #fff; }
+
+legend {
+  color: #666; }
+
+button, .button {
+  border: none;
+  background-color: #4b4b4b;
+  color: #fff; }
+
+button.primary, .button.primary {
+  background-color: #336699;
+  /* #369 */ }
+
+button:hover, .button:hover {
+  background-color: rgba(75, 75, 75, 0.9); }
+
+button.primary:hover, .button.primary:hover {
+  background-color: rgba(51, 102, 153, 0.9); }
+
+/*# sourceMappingURL=style.css.map */

@@ -13,11 +13,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="<?php echo HOME ?>/src/css/base.css">
-		<link rel="stylesheet" href="<?php echo HOME ?>/src/css/form.css">		
-		<link rel="stylesheet" href="<?php echo HOME ?>/src/css/header-default.css">
-		<link rel="stylesheet" href="<?php echo HOME ?>/src/css/skin-default.css">
-		<link rel="stylesheet" href="<?php echo HOME ?>/src/css/icomoon/style.css">
+		<link rel="stylesheet" href="<?php echo HOME ?>/css/style.css">
+		<link rel="stylesheet" href="<?php echo HOME ?>/css/icomoon.css">
 	</head>
 
 	<body>

@@ -1,7 +1,7 @@
 # ENROL ME!
 
 ```
-status: en desarrollo
+status: ALFA
 ```
 
 ENROL ME! es una aplicación ultra-sencilla para incorporar en tu Web de forma inmediata un sistema de inscripción a actividades o eventos.

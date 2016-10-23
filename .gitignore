@@ -1,2 +1,3 @@
-storage/
 src/
+tmp/
+.sass-cache
