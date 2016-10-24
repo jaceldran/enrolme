@@ -6,13 +6,14 @@ class App
 {	
 	/*
 	 * Constructor.
-	 * @param {array} $router
+	 * @param {array} $settings
 	 *	Configuración del router de la app.
 	 */
-	function __construct($router)
+	function __construct($settings)
 	{
-		$this->request = new Request($router);
-		$this->response = new Response();
+		$this->locale = new Locale($settings['locale']);
+		$this->request = new Request($settings['router']);
+		$this->response = new Response();		
 	}
 
 	/*

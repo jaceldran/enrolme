@@ -5,6 +5,7 @@
  */
 require 'paths.php';
 require 'router.php';
+require 'locale.php';
 
 
 // ---------------------

@@ -17,7 +17,8 @@ a {
   text-decoration: none; }
 
 h1 {
-  font-size: 225%; }
+  font-size: 225%;
+  padding: 0 15px; }
 
 h2 {
   font-size: 200%; }
@@ -68,6 +69,8 @@ main {
   position: absolute;
   top: 60px;
   bottom: 0;
+  right: 0;
+  width: 100%;
   z-index: 0;
   overflow: auto; }
 
@@ -178,11 +181,31 @@ fieldset {
   fieldset.no-border legend {
     padding: 0; }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+  --margin: 1em 0; }
+
+caption {
+  font-weight: bold;
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+
+th, td {
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+
 .inline {
   display: inline; }
 
 .no-border {
   border: none; }
+
+th.wauto, td.wauto {
+  width: 1%;
+  white-space: nowrap; }
 
 /* typo */
 button, .button {
@@ -199,6 +222,9 @@ header {
 legend {
   color: #666; }
 
+caption {
+  color: #666; }
+
 button, .button {
   border: none;
   background-color: #4b4b4b;
@@ -213,5 +239,10 @@ button:hover, .button:hover {
 
 button.primary:hover, .button.primary:hover {
   background-color: rgba(51, 102, 153, 0.9); }
+
+a {
+  color: #369; }
+  a:hover {
+    text-decoration: underline; }
 
 /*# sourceMappingURL=style.css.map */

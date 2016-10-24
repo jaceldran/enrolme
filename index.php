@@ -10,5 +10,7 @@ require 'vendor/Zentric/Helpers.php';
 /*
  * App Start
  */
-$app = new \Zentric\App($router);
+$settings['router'] = $router;
+$settings['locale'] = $locale; 
+$app = new \Zentric\App($settings);
 $app->start();

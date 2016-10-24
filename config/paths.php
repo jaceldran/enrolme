@@ -2,11 +2,15 @@
 
 /*
  * URLS y Carpetas.
+ * TODO: Ver si queda más claro distribuyendo las constantes en cada archivo. 
  */
 
 
 // URL a la home.
 define ('HOME', '/enrolme');
+
+// Ruta a carpeta de diccionarios locale
+define ('LOCALE', './locale');
 
 // Ruta a carpeta de almacenamiento (tipo array)
 define ('STORAGE', './storage');

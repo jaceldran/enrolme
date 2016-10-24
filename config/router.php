@@ -10,16 +10,16 @@ $router['defaults'] = array(
 $router['routes'] =& $routes;
 
 $routes['/'] = array (
-	'class' => 'App\Activity'
-	, 'method' => 'viewHome'
-	//, 'template-app' => TEMPLATES .'/css-test.html'
-	, 'template-data' => TEMPLATES .'/css-samples.html'	
+	'class' => 'App\Home'
+	, 'method' => 'index'	
+	, 'template-data' => TEMPLATES .'/view-routes-info.html'
 );
 
 $routes['/samples'] = array(
 	'class' => 'App\Activity'
 	, 'method' => 'createSamples' // TODO: redirecto view/samples
 );
+
 $routes['/view/samples'] = array(
 	'class' => 'App\Activity'
 	, 'method' => 'viewSamples'
