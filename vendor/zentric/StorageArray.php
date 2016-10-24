@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Zentric;
 /*
  * Driver de archivos de almacenamiento en disco.
  * Indicado para volúmenes de datos no excesivos. 

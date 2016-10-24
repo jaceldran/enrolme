@@ -1,26 +1,14 @@
 <?php namespace App;
 
 /*
- * Ini.
+ * Require básico.
  */
-require 'config.php';
-require APP . '/Helpers.php';
+require 'config/all.php';
+require 'vendor/Zentric/Helpers.php';
+
 
 /*
- * Autoload.
+ * App Start
  */
-spl_autoload_register(function($class) {
-	$path = APP . "/$class.php";
-	$path = str_replace('App\\','',$path);
-	if (file_exists($path)) {
-		include_once $path;
-	} else {
-		trigger_error ("no encuentra $path");
-	}	
-});
-
-/*
- * App.
- */
-$app = new App($router);
+$app = new \Zentric\App($router);
 $app->start();

@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Zentric;
 /*
  * Wrapper para gestión de almacenamiento de datos. 
  */
@@ -18,7 +18,7 @@ class Storage
 		$driver = 'Storage' . $settings['driver'];
 		$path = __DIR__ . "/$driver.php";
 		include_once $path;
-		$driver = "App\\$driver";
+		$driver = __NAMESPACE__ . "\\$driver";
 		$this->driver = new $driver($settings);
 	}
 	

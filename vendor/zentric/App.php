@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Zentric;
 /*
  * App. Contexto de aplicación.
  */
@@ -26,7 +26,6 @@ class App
 			// establecer template
 			if (!empty($current['template-app'])) {				
 				$this->response->setTemplate($current['template-app']);
-
 			}
 
 			// si incorpora 'template-data', entregar ya parseado.

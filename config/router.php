@@ -1,13 +1,4 @@
 <?php
-
-/*
- * URLS y Carpetas.
- */
-define ('HOME', '/enrolme');
-define ('STORAGE', __DIR__.'/storage');
-define ('APP', __DIR__.'/app');
-define ('TEMPLATES', __DIR__.'/templates');
-
 /*
  * Router
  */

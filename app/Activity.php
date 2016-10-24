@@ -15,7 +15,7 @@ class Activity
 	{
 		global $app;
 		$this->app =& $app;
-		$this->storage = new Storage(array(
+		$this->storage = new \Zentric\Storage(array(
 			'key' => 'activities'
 			, 'folder' => STORAGE
 			, 'driver' => 'Array'			
