@@ -7,10 +7,11 @@ class App
 	/*
 	 * Constructor.
 	 * @param {array} $settings
-	 *	Configuración del router de la app.
+	 *	Configuración de router y locale.
 	 */
 	function __construct($settings)
 	{
+		session_start();
 		$this->locale = new Locale($settings['locale']);
 		$this->request = new Request($settings['router']);
 		$this->response = new Response();		
@@ -23,7 +24,8 @@ class App
 	 */
 	function start()
 	{
-		if ($current = $this->request->current()) {			
+		if ($current = $this->request->current()) {
+
 			// establecer template
 			if (!empty($current['template-app'])) {				
 				$this->response->setTemplate($current['template-app']);
@@ -42,8 +44,11 @@ class App
 			$params = $current['params'];
 			$object = new $class();
 			call_user_func_array(array($object, $method),$params);
+
 		} else {
+
 			trigger_error('404 no encontrado');
+			
 		}
 	}
 }

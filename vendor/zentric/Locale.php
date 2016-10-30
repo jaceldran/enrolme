@@ -1,8 +1,8 @@
 <?php namespace Zentric;
 /*
- * Locale. Funcionalidad multi-idioma. Permite cargar diccionarios
- * de un directorio y proporciona la salida en base a una key de
- * término o expresión.
+ * Locale. Proporciona funcionalidad multiidioma. Permite cargar diccionarios
+ * desde el directorio de idioma correspondiente y proporciona la salida en 
+ * base a una key de término o expresión.
  */
 class Locale
 {	
@@ -54,8 +54,26 @@ class Locale
 			if (file_exists($file)) {
 				$locale = include $file;
 				$this->data = array_merge($this->data, $locale);
+			} else {
+				trigger_error("No encuentra file $file");
 			}
 		}
+	}
+
+	/*
+	 * Retorna la lista completa de términos cargados.
+	 * Opcionalmente incorpora un prefijo a las keys.
+	 */
+	function all($prefix=null)
+	{
+		$data = $this->data;
+		if (!empty($prefix)) {
+			$data = array();
+			array_walk($this->data,	function($value, $index) use ($prefix, &$data) {
+				$data[$prefix.$index] = $value;
+			});
+		}
+		return $data;
 	}
 
 }

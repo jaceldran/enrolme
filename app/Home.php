@@ -15,26 +15,21 @@ class Home
 	}
 
 	/*
-	 * Home.
+	 * Home. Muestra las actividades con plazo de inscripción abierto.
 	 */
 	function index()
-	{		
+	{
 		$route = $this->app->request->current();		
-		$template = $route['template-data'];
-
-		global $routes;
-		$r[] = $template['INI'];
-		foreach($routes as $key=>$route) {
-			$route['key'] = $key;
-			$route['uri'] = HOME . $key;
-			$route['label'] = $this->app->locale->say($key);
-			$r[] = render($route,$template['ELM']);
-		}
-		$r[] = $template['END'];
-		$this->app->response->add(implode('', $r));
-
+		$template = TEMPLATES.'/view-activity-cards.html';
+		$model = new Activity();
+		$data = $model->read('*');
+		$model->addContext(array(
+			'url-back'=>$route['uri']
+		));
+		$this->app->response->add(
+			$model->renderCollection($data, $template)
+		);
 		$this->app->response->html();
-	}
-
-
+	} 
+	
 }

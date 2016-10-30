@@ -8,6 +8,8 @@
  */
 class Activity
 {
+	protected $context = array(); 
+
 	/*
 	 * Constructor.
 	 */
@@ -15,12 +17,151 @@ class Activity
 	{
 		global $app;
 		$this->app =& $app;
+
 		$this->storage = new \Zentric\Storage(array(
 			'key' => 'activities'
 			, 'folder' => STORAGE
 			, 'driver' => 'Array'			
 		));
+
+		$this->context = array(
+			'home' => HOME
+		);
 	}
+
+	// ----------------------
+	// -- MÉTODOS C.R.U.D. --
+	// ----------------------
+
+	/*
+	 * Leer actividades.
+	 * @param {string} $scope
+	 *	Filtro para leer, usualmente un estado de actividad open|close|archive...
+	 */
+	function read($scope="*")
+	{  	
+		// por ahora siempre lee todo
+		$content = $this->storage->content();
+		$data =& $content['data'];		
+		return $this->compute($data);
+	}
+
+	/*
+	 * Lee una actividad por atributo UID
+	 */
+	function find($uid)
+	{
+		$activity = $this->storage->find('uid',$uid);
+		$activity = $this->compute(array($activity));
+		return $activity[0];
+	}
+
+	/*
+	 * Lee los enrolments vinculados a una actividad.
+	 */
+	function enrollers($uid)
+	{
+		$model = new Enrolment($uid);
+		$content = $model->storage->content();
+		$data = $content['data'];
+		return $data;
+	}
+
+	/*
+	 * Campos calculados al leer.
+	 */
+	function compute($data)
+	{		
+		foreach($data as $index=>&$elm) {
+
+			// renders de fechas
+			$elm = $this->computeDates($elm);
+
+			// duración empieza y termina el mismo día
+			if ($elm['render-start-date']===$elm['render-end-date']) {
+				$elm['render-duration'] =
+					'<span class="icon-calendar"></span>' 
+					. ' '.$elm['render-start-date']
+					. ' <span class="icon-clock-o"></span>'
+					.' '.$elm['render-start-time'] . '&ndash;' . $elm['render-end-time'];
+			}
+
+			// enrollers
+			$elm['enrollers'] = $this->enrollers($elm['uid']);
+			$elm['count-enrollers'] = count($elm['enrollers']);  
+
+		}
+
+
+
+		
+
+		return $data;
+	}
+
+	/*
+	 * Auxiliar de compute. Calcula varios datos derivados para
+	 * el $value datetime recibido en formato aaaa-mm-dd hh:mm:ss.
+	 */
+	function computeDates($elm)
+	{
+		$dates = array('start', 'end', 'open', 'close');
+		foreach($dates as $attr) {
+			$dt = strtotime($elm[$attr]);			
+			$elm["render-$attr-date"] = date('d/m/Y', $dt);
+			$elm["render-$attr-day"] = date('d', $dt);
+			$elm["render-$attr-month"] = date('M', $dt);
+			$elm["render-$attr-year"] = date('Y', $dt);
+			$elm["render-$attr-time"] = date('H:i', $dt);
+		}
+
+		return $elm;
+	}
+
+	// -----------------------
+	// -- MÉTODOS DE RENDER --
+	// -----------------------
+
+	/*
+	 *
+	 * @param {array} $values
+	 *	Lista keys=>values con valores varios como contexto, etc.
+	 */
+	function addContext($values)
+	{
+		$this->context = array_merge($this->context, $values);
+	}
+
+	/*
+	 * @param {array} $data
+	 *	El data a representar.
+	 * @param {string|array} $template
+	 *	El template con el que se representa $data.
+	 * @return {string}
+	 *	El resultado de la representación.
+	 */
+	 function renderCollection($data, $template)
+	 {
+		 if (is_string($template)) {
+			 $template = parse_ini_sections($template);
+		 }
+
+		 $r[] = $template['INI'];
+		 foreach($data as $elm) {
+			 $r[] = render($elm, $template['ELM']);
+		 }
+		 $r[] = $template['END'];
+
+		 $view = implode('', $r);
+		 $view = render($this->context, $view);
+
+		 return $view;
+	 }	
+
+
+//------------------------------------------------------------------------------
+// de aquí para abajo son pruebas de funcionamiento, borrar
+//------------------------------------------------------------------------------
 
 	/*
 	 * Vista para el home.
@@ -90,35 +231,6 @@ class Activity
 		$this->app->response->redirect(HOME.'/view/samples');
 	}
 
-	function viewUpdate($uid)
-	{
-	}
 
-	/*
-	 * Campos calculados al leer.
-	 */
-	function compute($data)
-	{		
-		foreach($data as $index=>&$elm) {
-			$elm = $this->computeDates($elm);
-		}
-		return $data;
-	}
-
-	/*
-	 * Auxiliar de compute. Calcula varios datos derivados para
-	 * el $value datetime recibido en formato aaaa-mm-dd hh:mm:ss.
-	 */
-	function computeDates($elm)
-	{
-		$dates = array('start', 'end', 'open', 'close');
-		foreach($dates as $attr) {
-			$dt = strtotime($elm[$attr]);
-			
-			$elm["render-$attr-date"] = date('d/m/Y');
-			$elm["render-$attr-time"] = date('H:i');
-		}
-		return $elm;
-	}
 
 }

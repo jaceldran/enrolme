@@ -52,7 +52,7 @@ class StorageArray
 	{
 		$content = $this->content();
 		$elm = $content['data'][$index];
-		$elm['index'] = $index;
+		$elm['index'] = $index;		
 		return $elm;		
 	}
 

@@ -13,26 +13,30 @@ class Request
 	 * Constructor.
 	 * @param {array} $router 
 	 *	Configuración de rutas de la app.
+	 * TODO: incluir el valor de HOME en la configu del router
+	 * para no depender de la constante
 	 */
 	function __construct($router)
 	{
 		$this->defaults = $router['defaults'];
 		$this->routes = $router['routes'];
 		$this->uri =$_SERVER['REQUEST_METHOD']
-			.' '.str_replace(HOME,'',$_SERVER['REQUEST_URI']);
+			. ' '.substr($_SERVER['REQUEST_URI'],strlen(HOME));
 		$this->route = $this->match();
 	}
 
 	/*
 	 * Identifica configuración de la ruta actual.
 	 * @return {array|null} $route 
-	 *	Configuración de ruta actual	o null, si no existe.
+	 *	Configuración de ruta actual o null, si no existe.
 	 */
 	function match()
 	{		
 		foreach($this->routes as $pattern=>$route) {
+
 			// defaults
 			$route = array_merge($this->defaults, $route);
+			$route['uri'] = $this->uri;
 
 			// si patten no especifica método, asignar GET
 			if (substr($pattern,0,1)==='/') {

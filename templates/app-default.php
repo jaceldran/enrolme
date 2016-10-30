@@ -33,10 +33,10 @@
 					<span class="icon-home"></span>
 					<span>Home</span>
 				</a>
-				<a class="action" href="<?php echo HOME ?>/activities">
+				<!--a class="action" href="<?php echo HOME ?>/activities">
 					<span class="icon-list-ul"></span>
 					<span>Actividades</span>
-				</a>
+				</a-->
 			</nav>
 
 			<a data-target="header nav.panel" 
@@ -48,8 +48,9 @@
 			<?php $this->main() ?>
 		</main>
 
-		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>	
-		<script src="<?php echo HOME ?>/src/js/header.js"></script>	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>		
+		<script src="<?php echo HOME ?>/js/header.js"></script>
+		<?php $this->javascript() ?>
 	</body
 
 </html>

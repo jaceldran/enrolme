@@ -1,0 +1,53 @@
+[INI]
+<style>
+	.activity  {
+		display: flex;
+		--background-color: #eee;
+	}
+	.activity > .card {margin-left: 5px;}
+	.activity > .card > .name {font-size: 150%;}
+	.date {
+		text-align: center;
+		background-color: #444;
+		color: white;
+		width: 110px;
+		height: 110px;
+		display: flex;
+		flex-direction: column;		
+		justify-content: space-between;
+		padding: 5px 0;
+	}
+	.day {font-size: 300%;}
+	.month {text-transform: uppercase;}
+</style>
+
+<div class="activity gutter">
+	<div class="date">
+		<div class="year">%render-start-date%</div>
+		<div class="day">%render-start-day%</div>
+		<div class="month">%render-start-month%</div>
+	</div>
+	<div class="card">
+		<div class="name">%name%</div>
+		<div class="summary">%summary%</div>
+		<div class="control">%render-duration%</div>
+	</div>
+</div>
+
+<table>
+	<caption>
+		%locale-enrolments% <span class="count">%count-enrollers%</span>
+	</caption>
+
+[ELM]
+<tr>
+	<td class="wauto">%position%</td>
+	<td>%name% %surname%</td>
+</tr>
+
+[END]
+</table>
+
+<p class="gutter text-center">
+	<a class="button" href="%home%/in/%uid%">%locale-enrolme!%</a>
+</p>	

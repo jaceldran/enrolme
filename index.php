@@ -1,11 +1,10 @@
 <?php namespace App;
 
 /*
- * Require básico.
+ * Require básicos: config y helpers
  */
 require 'config/all.php';
-require 'vendor/Zentric/Helpers.php';
-
+require 'vendor/zentric/Helpers.php';
 
 /*
  * App Start

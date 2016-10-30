@@ -4,6 +4,32 @@
  */
 
 /*
+ * Render de una colección de elementos ($data) usando $template.
+ * @param {array} $data.
+ * @param {array|string} $template.
+ * @param {array} $marks Marcas que aplican al todo el documento.
+ */
+function renderview($data, $template, $marks=array()) {
+
+	if (is_string($template)) {
+		$template = parse_ini_sections($template);
+	}
+
+	$r[] = $template['INI'];
+	foreach($data as $index=>$elm) {
+		$elm['index'] = $index;			// en base 0
+		$elm['position'] = $index+1; 	// en base 1
+		$r[] = render($elm, $template['ELM']);
+	}
+	$r[] = $template['END'];
+
+	$view = implode('', $r);
+	$view = render($marks, $view);
+
+	return $view;
+}
+
+/*
  * Representa un objeto con una plantilla.
  * @param {array} $data
  *	El objeto a representar. Array asociativo de atributos y valores.
@@ -14,7 +40,10 @@
  */
 function render($data, $template)
 {
+	$search = array();
+	$replace = array();
 	foreach($data as $key=>$value) {
+		if (!is_scalar($value)) continue;
 		$search[] = '%'.strtolower($key).'%';
 		$replace[] = $value;
 	}	

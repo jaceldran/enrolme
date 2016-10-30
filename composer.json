@@ -1,6 +1,6 @@
 {
 	"name": "ENROL ME!",
-	"description": "Simple Enrolment Application",
+	"description": "Instant Enrolment Application",
 	"autoload": {
 		"psr-4": {
 			"Zentric\\": "vendor/zentric",

@@ -4,6 +4,7 @@
  */
  return array (
 	 '/' => 'Inicio'
+	 , '/style' => 'Muestra de estilo CSS'
 	 , '/samples' => 'Muestras'
 	 , '/view/samples' => 'Vista de muestras'
  );
