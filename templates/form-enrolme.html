@@ -4,26 +4,10 @@
 
 <style>
 	.control.name {font-size: 120%;}
-	/*.activity  {display: flex;}
-	.activity > .card {margin-left: 5px;}
-	.activity > .card > .name {font-size: 150%;}
-	.date {
-		text-align: center;
-		background-color: #444;
-		color: white;
-		width: 110px;
-		height: 110px;
-		display: flex;
-		flex-direction: column;		
-		justify-content: space-between;
-		padding: 5px 0;
-	}
-	.day {font-size: 300%;}
-	.month {text-transform: uppercase;}*/
 </style>
 
 <div class="gutter">
-	<h1>%locale-enrol-to-activity%</h1>	
+	<b>%locale-enrol-to-activity%</b>	
 </div>
 
 <form name="enrolment" method="post">	
@@ -40,6 +24,12 @@
 		</div>
 		<div class="control">%render-duration%</div>
 	</fieldset>
+
+	<!--fieldset class="inline"><legend>%locale-enroller%</legend>		
+			<input class="control" type="text" name="name" placeholder="%locale-name%">			
+			<input class="control" type="text" name="surname" placeholder="%locale-surname%">
+			<input class="control" type="email" name="email" placeholder="%locale-email%">
+	</fieldset-->
 
 	<fieldset class="inline"><legend>%locale-enroller%</legend>	
 		<div class="control">		

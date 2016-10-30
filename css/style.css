@@ -145,6 +145,7 @@ header nav {
   header nav {
     display: flex;
     position: static;
+    transition: none !important;
     transform: translateX(0%) !important;
     width: auto; }
   header nav .header {
@@ -194,16 +195,32 @@ fieldset {
     padding: 0; }
 
 @media (min-width: 768px) {
-  fieldset.inline {
-    display: flex;
-    align-items: center;
-    flex-flow: row nowrap; }
-  fieldset.inline .control {
-    margin-right: 10px;
-    width: 100%; }
+  form {
+    display: table;
+    border-spacing: 0px;
+    max-width: 90%; }
+
+  fieldset {
+    display: table-row; }
+    fieldset.inline {
+      display: table-row; }
+    fieldset.inline .control {
+      display: table-cell;
+      border-right: 10px solid transparent; }
 
   button, .button {
-    width: auto; } }
+    width: auto; }
+
+  body:after {
+    content: 'PC';
+    position: absolute;
+    display: inline-block;
+    padding: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: darkred;
+    color: white;
+    z-index: 5; } }
 table {
   border-collapse: collapse;
   width: 100%;
@@ -256,6 +273,12 @@ th, td {
 
 .no-padding-top {
   padding-top: 0; }
+
+.no-padding-left {
+  padding-left: 0; }
+
+.no-padding-right {
+  padding-right: 0; }
 
 th.wauto, td.wauto {
   width: 1%;

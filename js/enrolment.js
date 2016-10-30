@@ -16,7 +16,7 @@ $(function(){
 					alert(response.message);
 					return;
 				}
-				location.reload();
+				location.href=location.href;
 			}
 		}
 

@@ -2,24 +2,26 @@
 <style>
 	.activity  {
 		display: flex;
-		--background-color: #eee;
+		//background-color: #eee;
 	}
-	.activity > .card {margin-left: 5px;}
+	.activity > .card {margin-left: 15px;}
 	.activity > .card > .name {font-size: 150%;}
 	.date {
 		text-align: center;
 		background-color: #444;
 		color: white;
-		width: 110px;
-		height: 110px;
+		width: 90px;
+		height: 90px;
 		display: flex;
 		flex-direction: column;		
 		justify-content: space-between;
 		padding: 5px 0;
 	}
-	.day {font-size: 300%;}
-	.month {text-transform: uppercase;}
+	.year {font-size: 90%;}
+	.day {font-size: 200%;}
+	.month {font-size: 90%; text-transform: uppercase;}
 </style>
+
 
 <div class="activity gutter">
 	<div class="date">
@@ -43,11 +45,13 @@
 <tr>
 	<td class="wauto">%position%</td>
 	<td>%name% %surname%</td>
+	<td>%email%</td>
+	<td>%created%</td>
 </tr>
 
 [END]
 </table>
 
-<p class="gutter text-center">
+<p class="text-center">
 	<a class="button" href="%home%/in/%uid%">%locale-enrolme!%</a>
 </p>	

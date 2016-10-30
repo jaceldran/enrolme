@@ -1,6 +1,11 @@
 [INI]
 <style>
-	.activity  {display: flex;}
+	td {--vertical-align: bottom;}
+	.activity-name {font-size: 110%;}
+	.activity-summary {font-size: 90%;}
+	.activity-duration {font-size: 90%;}
+
+	/*.activity  {display: flex;}
 	.activity > .card {margin-left: 5px;}
 	.activity > .card > .name {font-size: 150%;}
 	.date {
@@ -15,28 +20,38 @@
 		padding: 5px 0;
 	}
 	.day {font-size: 300%;}
-	.month {text-transform: uppercase;}
+	.month {text-transform: uppercase;}*/
 </style>
-
-<h1 class="gutter">Actividades abiertas</h1>
 
 <table>
 
+	<caption>
+		Actividades abiertas
+	</caption>
+
 [ELM]
 <tr>
-	<td class="wauto">%render-start-date%</td>
-	<td>
-		<div class="name">%name%</div>
+	<!--td class="wauto activity-date">%render-start-date%</td-->
+	<td class="">		
+		<div class="activity-name">%name%</div>		
+		<div class="activity-summary">%summary%</div>
+		<div class="activity-duration">%render-duration%</div>
+
+		<p><a class="button small" href="%home%/enrollers/%uid%">
+			%locale-enrolments%
+			<span class="count">%count-enrollers%</span>			 
+		</a></p>
+
 	</td>
 	<!--td class="wauto">
 		<a href="%home%/in/%uid%">%locale-editar%</a>
 	</td-->
-	<td class="wauto">
+	<!--td class="wauto">
 		<a class="button small" href="%home%/enrollers/%uid%">
 			%locale-enrolments%
 			<span class="count">%count-enrollers%</span>			 
 		</a>
-	</td>
+	</td-->
 
 </tr>
 [END]
