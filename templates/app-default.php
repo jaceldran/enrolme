@@ -21,7 +21,9 @@
 
 		<header>
 
-			<a class="brand" href="<?php echo HOME ?>">ENROL ME!</a>
+			<a class="brand" href="<?php echo HOME ?>">
+				ENROL ME! <span class="status">alfa</span>
+			</a>
 
 			<nav class="panel">
 				<div class="header">					

@@ -1,10 +1,10 @@
-# ENROL ME!
+# ENROL ME! 
 
-```
 status: ALFA
-```
 
 ENROL ME! es una aplicación ultra-sencilla para incorporar en tu Web de forma inmediata un sistema de inscripción a actividades o eventos.
+
+Hay una demo disponible con la versión actual (ALFA) en  [http://zentric.es/enrolme](http://zentric.es/enrolme).
 
 Puedes establecer la fecha y hora de inicio y finalización de la actividad así como la fecha y hora de apertura y cierre del plazo de inscripción.
 
