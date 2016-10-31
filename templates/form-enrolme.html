@@ -1,56 +1,48 @@
-
-
 [ELM]
 
 <style>
 	.control.name {font-size: 120%;}
 </style>
 
-<div class="gutter">
-	<b>%locale-enrol-to-activity%</b>	
+<div class="gutter">		
+			<!--a href="%home%/enrollers/%uid%" class="float-right"-->
+			<span class="float-right">
+				%locale-enrolments% <span class="count">%count-enrollers%</span>
+			</span>	
+			<!--/a-->
+	<b>%locale-enrolment% %locale-in% %name%</b>	
 </div>
 
 <form name="enrolment" method="post">	
 	<input type="hidden" name="storage-key" value="%uid%">
 	<input type="hidden" name="redirect" value="%home%/enrollers/%uid%">
 
-	<fieldset><legend>%locale-activity%</legend>
+	<header>%locale-activity%</header>
+	<section class="controls">		
 		<div class="control name">%name%</div>
 		<div class="control summary">%summary%</div>
-		<div class="control">
-			<a href="%home%/enrollers/%uid%">
-				%locale-enrolments% <span class="count">%count-enrollers%</span>
-			</a>
-		</div>
 		<div class="control">%render-duration%</div>
-	</fieldset>
+	</section>
 
-	<!--fieldset class="inline"><legend>%locale-enroller%</legend>		
-			<input class="control" type="text" name="name" placeholder="%locale-name%">			
-			<input class="control" type="text" name="surname" placeholder="%locale-surname%">
-			<input class="control" type="email" name="email" placeholder="%locale-email%">
-	</fieldset-->
-
-	<fieldset class="inline"><legend>%locale-enroller%</legend>	
-		<div class="control">		
+	<header>%locale-enroller%</header>
+	<section class="inline">
+		<div class="control">
+			<label>%locale-name%</label>		
 			<input class="" type="text" name="name" placeholder="%locale-name%">
 		</div>
-		<div class="control">			
+		<div class="control">
+			<label>%locale-surname%</label>
 			<input class="" type="text" name="surname" placeholder="%locale-surname%">
 		</div>
 		<div class="control">
+			<label>%locale-email%</label>
 			<input class="" type="email" name="email" placeholder="%locale-email%">
 		</div>
-	</fieldset>
+	</section>
 
-	<fieldset class="no-padding-top no-border" style="">
+	<div class="text-center">
 		<button>%locale-enrolme!%</button>
-	</fieldset>
-
-	<!--fieldset class="no-padding-bottom no-padding-top no-margin">
-		<legend>%locale-enrolments% <span class="count">%count-enrolments%</span></legend>
-	</fieldset>
-	<div class="enrolments">%render-enrolments%</div-->
+	</div>
 
 </form>
 

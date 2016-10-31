@@ -7,8 +7,6 @@
 	 , 'activity' => 'Actividad'
 	 , 'enroller' => 'Participante'
 	 , 'enrolments' => 'Inscripciones'
-
-	 // 
 	 , 'name' => 'Nombre'
 	 , 'surname' => 'Apellidos'
 	 , 'email' => 'Email'

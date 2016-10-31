@@ -1,46 +1,35 @@
 [INI]
 <style>
-	td {--vertical-align: bottom;}
 	.activity-name {font-size: 110%;}
 	.activity-summary {font-size: 90%;}
 	.activity-duration {font-size: 90%;}
-
-	/*.activity  {display: flex;}
-	.activity > .card {margin-left: 5px;}
-	.activity > .card > .name {font-size: 150%;}
-	.date {
-		text-align: center;
-		background-color: #444;
-		color: white;
-		width: 110px;
-		height: 110px;
-		display: flex;
-		flex-direction: column;		
-		justify-content: space-between;
-		padding: 5px 0;
-	}
-	.day {font-size: 300%;}
-	.month {text-transform: uppercase;}*/
 </style>
 
 <table>
 
 	<caption>
-		Actividades abiertas
+		%locale-activities%
 	</caption>
 
 [ELM]
 <tr>
 	<!--td class="wauto activity-date">%render-start-date%</td-->
-	<td class="">		
-		<div class="activity-name">%name%</div>		
+	<td class="">
+		<a href="%home%/enrollers/%uid%">		
+		<div class="activity-name">
+			<span class="count float-right">%count-enrollers%</span>
+			%name%</div>		
 		<div class="activity-summary">%summary%</div>
 		<div class="activity-duration">%render-duration%</div>
+		</a>
 
-		<p><a class="button small" href="%home%/enrollers/%uid%">
+		<!--p style="display:flex">
+			<a class="button small" href="%home%/edit/%uid%">
+			%locale-editar%</a> &nbsp;
+			<a class="button small" href="%home%/enrollers/%uid%">
 			%locale-enrolments%
-			<span class="count">%count-enrollers%</span>			 
-		</a></p>
+			<span class="count">%count-enrollers%</span></a>
+		</p-->
 
 	</td>
 	<!--td class="wauto">

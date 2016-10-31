@@ -21,5 +21,5 @@ $locale['lang'] = 'es-ES';
  * Los diccionarios que se cargan por defecto al iniciar el objeto Locale.
  */
 $locale['defaults'] = array(
-	'routes'
+	'routes', 'common'
 );

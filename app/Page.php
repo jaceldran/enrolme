@@ -15,9 +15,10 @@ class Page
 		// variables de contexto útiles para renders.
 		//  - locale keys aplicadas a activity como "locale-xxx".
 		//  - dirección HOME, para enlaces.
-		$this->app->locale->load('common','enrolment'); 
+		$this->app->locale->load('enrolment'); 
 		$this->context = $this->app->locale->all('locale-');
 		$this->context['home'] = HOME;
+		$this->context['host'] = HOST;
 	}
 
 	/*
@@ -40,7 +41,7 @@ class Page
 
 	/*
 	 * GET enrroles/:uid
-	 * Listado de participantes de la actividad $uid
+	 * Listado de participantes de la actividad $uid (ADMIN)
 	 * @param {string} $uid Identificador de actividad.
 	 */
 	function enrollers($uid)
@@ -51,9 +52,9 @@ class Page
 		$activity = array_merge($activity, $this->context);
 		$view = renderview (
 			$activity['enrollers']
-			, TEMPLATES.'/view-enrollers.html'
-			, $activity);
-		$this->app->response->add($view);		
+			, TEMPLATES.'/view-enrollers-admin.html'
+			, $activity);		
+		$this->app->response->add($view);
 		$this->app->response->html();
 	}
 	 

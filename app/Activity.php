@@ -18,20 +18,21 @@ class Activity
 		global $app;
 		$this->app =& $app;
 
+		$this->model = array(
+			'name' => array('rules'=>array('required'))
+			, 'summary' => array('rules'=>array())
+			, 'start' => array('rules'=>array())
+			, 'end' => array('rules'=>array())
+			, 'open' => array('rules'=>array())
+			, 'close' => array('rules'=>array())
+		);
+
 		$this->storage = new \Zentric\Storage(array(
 			'key' => 'activities'
 			, 'folder' => STORAGE
 			, 'driver' => 'Array'			
 		));
-
-		$this->context = array(
-			'home' => HOME
-		);
 	}
-
-	// ----------------------
-	// -- MÉTODOS C.R.U.D. --
-	// ----------------------
 
 	/*
 	 * Leer actividades.
@@ -48,6 +49,7 @@ class Activity
 
 	/*
 	 * Lee una actividad por atributo UID
+	 * @param {string} $uid Identificador.
 	 */
 	function find($uid)
 	{
@@ -58,13 +60,12 @@ class Activity
 
 	/*
 	 * Lee los enrolments vinculados a una actividad.
+	 * @param {string} $uid Identificador.
 	 */
 	function enrollers($uid)
 	{
 		$model = new Enrolment($uid);
-		$content = $model->storage->content();
-		$data = $content['data'];
-		return $data;
+		return $model->enrollers();
 	}
 
 	/*
@@ -92,10 +93,6 @@ class Activity
 
 		}
 
-
-
-		
-
 		return $data;
 	}
 
@@ -118,19 +115,15 @@ class Activity
 		return $elm;
 	}
 
-	// -----------------------
-	// -- MÉTODOS DE RENDER --
-	// -----------------------
-
 	/*
 	 *
 	 * @param {array} $values
 	 *	Lista keys=>values con valores varios como contexto, etc.
 	 */
-	function addContext($values)
+	/*function addContext($values)
 	{
 		$this->context = array_merge($this->context, $values);
-	}
+	}*/
 
 	/*
 	 * @param {array} $data
@@ -140,7 +133,7 @@ class Activity
 	 * @return {string}
 	 *	El resultado de la representación.
 	 */
-	 function renderCollection($data, $template)
+	 /*function renderCollection($data, $template)
 	 {
 		 if (is_string($template)) {
 			 $template = parse_ini_sections($template);
@@ -156,23 +149,13 @@ class Activity
 		 $view = render($this->context, $view);
 
 		 return $view;
-	 }	
+	 }*/	
 
 
 //------------------------------------------------------------------------------
 // de aquí para abajo son pruebas de funcionamiento, borrar
+// o trasladar a clase DEBUG
 //------------------------------------------------------------------------------
-
-	/*
-	 * Vista para el home.
-	 */
-	function viewHome()
-	{		
-		$route = $this->app->request->current();		
-		$template = $route['template-data'];	
-		$this->app->response->add( $template['ELM'] );
-		$this->app->response->html();
-	}
 
 	/*
 	 * GET /view/samples. 
@@ -230,7 +213,5 @@ class Activity
 		// redirigir a vista de samples recién creadas.
 		$this->app->response->redirect(HOME.'/view/samples');
 	}
-
-
 
 }

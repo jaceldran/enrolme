@@ -1,10 +1,13 @@
 [INI]
 <style>
-	.activity  {
-		display: flex;
-		//background-color: #eee;
+	.activity > .date {
+		float: left;
+		margin-right: 15px;
 	}
-	.activity > .card {margin-left: 15px;}
+	.activity > .card > .link {		
+		line-height: 2;
+		text-decoration: underline;
+	}
 	.activity > .card > .name {font-size: 150%;}
 	.date {
 		text-align: center;
@@ -24,15 +27,19 @@
 
 
 <div class="activity gutter">
+	<a class="icon-cog float-right button small wauto"></a>
 	<div class="date">
 		<div class="year">%render-start-year%</div>
 		<div class="day">%render-start-day%</div>
 		<div class="month">%render-start-month%</div>
 	</div>
-	<div class="card">
+	<div class="card">		
 		<div class="name">%name%</div>
 		<div class="summary">%summary%</div>
-		<div class="control">%render-duration%</div>
+		<div class="duration">%render-duration%</div>
+		<div class="link"><a href="%host%/in/%uid%">
+			<span  class="icon-external-link"></span> %host%/in/%uid%
+		</a></div>
 	</div>
 </div>
 
@@ -43,15 +50,16 @@
 
 [ELM]
 <tr>
-	<td class="wauto">%position%</td>
+	<!--td class="wauto text-right">%position%#</td-->
 	<td>%name% %surname%</td>
-	<td>%email%</td>
-	<td>%created%</td>
+	<td class="wauto">%email%</td>
+	<td class="wauto">%render-created%</td>
+	<td  class="wauto"><a class="button small icon-cog" href="#"></a></td>
 </tr>
 
 [END]
 </table>
 
-<p class="text-center">
+<!--p class="text-center">
 	<a class="button" href="%home%/in/%uid%">%locale-enrolme!%</a>
-</p>	
+</p-->	

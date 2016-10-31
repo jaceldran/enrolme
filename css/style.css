@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   font-family: sans-serif;
-  font-size: medium;
+  font-size: large;
   color: inherit; }
 
 *::after, *::before {
@@ -13,6 +13,9 @@ button::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
+@media (min-width: 768px) {
+  * {
+    font-size: medium; } }
 a {
   text-decoration: none; }
 
@@ -73,7 +76,7 @@ main {
   z-index: 0;
   overflow: auto; }
 
-header {
+body > header {
   display: flex;
   justify-content: space-between;
   line-height: 60px;
@@ -81,18 +84,17 @@ header {
   position: fixed;
   z-index: 1;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
-  header .brand {
+  body > header .brand {
     font-weight: bold;
     padding: 0 15px;
     font-size: large;
     font-family: montserrat;
     position: relative; }
-    header .brand .status {
+    body > header .brand .status {
       background-color: goldenrod;
       color: darkred;
       padding: 0;
       font-size: x-small;
-      --font-family: consolas;
       text-transform: uppercase;
       display: inline-block;
       text-align: center;
@@ -100,17 +102,17 @@ header {
       height: 15px;
       line-height: 15px;
       transform: translate(-25px, -18px) rotate(-15deg); }
-  header .open-panel {
+  body > header .open-panel {
     border: 0;
     background-color: transparent;
     font-weight: bold;
     line-height: inherit;
-    font-size: large; }
-  header .action {
+    font-size: x-large; }
+  body > header .action {
     cursor: pointer;
     padding: 0 15px; }
 
-header nav {
+body > header nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -118,21 +120,21 @@ header nav {
   width: 100%;
   transform: translateX(-100%);
   transition: all .20s; }
-  header nav .header {
+  body > header nav .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
-  header nav .title {
+  body > header nav .title {
     padding: 0 15px;
     font-weight: bold;
     font-size: large;
     font-family: montserrat; }
-  header nav .close-panel {
+  body > header nav .close-panel {
     line-height: inherit; }
-  header nav a {
+  body > header nav a {
     display: block; }
-    header nav a:hover {
+    body > header nav a:hover {
       background-color: rgba(0, 0, 0, 0.05); }
 
 .panel-close {
@@ -142,17 +144,27 @@ header nav {
   transform: translateX(0%); }
 
 @media (min-width: 768px) {
-  header nav {
+  body > header nav {
     display: flex;
     position: static;
     transition: none !important;
     transform: translateX(0%) !important;
     width: auto; }
-  header nav .header {
+  body > header nav .header {
     display: none; }
-  header .open-panel {
+  body > header .open-panel {
     display: none; } }
+form {
+  width: 100%; }
+  form header {
+    padding: 10px; }
+  form section {
+    padding: 10px; }
+  form .control {
+    margin-bottom: 5px; }
+
 label {
+  display: block;
   font-weight: bold; }
 
 input, select, textarea {
@@ -171,17 +183,16 @@ button, .button {
   width: 100%;
   line-height: 50px;
   border: 1px solid rgba(0, 0, 0, 0.15); }
+  button.wauto, .button.wauto {
+    width: auto; }
 
 .button.small {
   font-size: small;
-  line-height: 2;
-  padding: 0 6px; }
+  line-height: 40px;
+  padding: 0 10px; }
 
 legend {
   font-weight: bold; }
-
-form .control {
-  margin-bottom: 5px; }
 
 fieldset {
   border-style: solid;
@@ -195,18 +206,11 @@ fieldset {
     padding: 0; }
 
 @media (min-width: 768px) {
-  form {
-    display: table;
-    border-spacing: 0px;
-    max-width: 90%; }
-
-  fieldset {
-    display: table-row; }
-    fieldset.inline {
-      display: table-row; }
-    fieldset.inline .control {
-      display: table-cell;
-      border-right: 10px solid transparent; }
+  form section.inline {
+    display: flex; }
+    form section.inline .control {
+      flex-grow: 1;
+      margin-right: 10px; }
 
   button, .button {
     width: auto; }
@@ -248,10 +252,10 @@ th, td {
   color: #fff;
   text-align: center;
   padding: .25em;
-  line-height: 1;
-  min-width: 20px;
-  font-size: 90%;
-  margin: 0 0 0 5px; }
+  line-height: 1.25;
+  min-width: 1.7em;
+  font-size: 80%;
+  font-weight: bold; }
 
 .float-right {
   float: right; }
@@ -293,13 +297,19 @@ button, .button {
 body {
   color: #444; }
 
-header {
-  background-color: rgba(255, 255, 255, 0.96);
+body > header {
+  background-color: #444;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
-  header a {
-    color: inherit; }
-  header nav {
-    background-color: #fff; }
+  body > header a {
+    color: #fff; }
+  body > header nav {
+    background-color: #444; }
+  body > header .title {
+    color: #fff; }
+
+form header {
+  background-color: #444;
+  color: #fff; }
 
 legend {
   color: #666; }

@@ -29,7 +29,7 @@
 				<div class="header">					
 					<span class="title">ENROL ME!</span>
 					<a data-target="header nav.panel" 
-						class="action close-panel icon-close large"></a>					
+						class="action close-panel icon-close"></a>					
 				</div>
 				<a class="action" href="<?php echo HOME ?>">
 					<span class="icon-home"></span>
