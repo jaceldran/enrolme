@@ -2,3 +2,4 @@ src/
 scss/
 tmp/
 .sass-cache
+.vscode
