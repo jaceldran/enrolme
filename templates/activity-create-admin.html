@@ -1,0 +1,90 @@
+[INI]
+
+<nav class="toolbar">
+	<a href="%redirect%" class="button wauto">
+		<span class="icon-arrow-left"></span>
+	</a>
+	<span class="title">
+		%locale-create% %locale-activity%
+	</span>
+</nav>
+
+<form method="post">	
+
+[ELM]
+
+	<input type="hidden" name="redirect" value="%redirect%">
+
+	<header>%locale-activity%</header>
+	<section>
+		<div class="control">
+			<label>%locale-name%</label>		
+			<input class="" type="text" name="name" value="" placeholder="%locale-name%">
+		</div>
+		<div class="control">
+			<label>%locale-summary%</label>
+			<textarea class="" name="summary" 
+				placeholder="%locale-summary%"></textarea>
+		</div>
+	</section>
+
+	<!-- duración -->
+	<header>%locale-duration%</header>
+	<section class="inline">
+		<div class="control">
+			<label>%locale-start-date%</label>		
+			<input type="date" name="start-date" 
+				value="" placeholder="%locale-start-date%">
+		</div>
+		<div class="control">
+			<label>%locale-start-time%</label>		
+			<input type="time" name="start-time" 
+				value="" placeholder="%locale-start-time%">
+		</div>
+	</section>	
+	<section class="inline">
+		<div class="control">
+			<label>%locale-end-date%</label>		
+			<input type="date" name="end-date" 
+				value="" placeholder="%locale-end-date%">
+		</div>
+		<div class="control">
+			<label>%locale-end-time%</label>		
+			<input type="time" name="end-time" 
+				value="" placeholder="%locale-end-time%">
+		</div>
+	</section>
+
+	<!-- inscripción -->
+<header>%locale-enrolment%</header>
+	<section class="inline">
+		<div class="control">
+			<label>%locale-open-date%</label>		
+			<input type="date" name="open-date" 
+				value="" placeholder="%locale-open-date%">
+		</div>
+		<div class="control">
+			<label>%locale-open-time%</label>
+			<input type="time" name="open-time" 
+				value="" placeholder="%locale-open-time%">
+		</div>
+	</section>	
+	<section class="inline">
+		<div class="control">
+			<label>%locale-close-date%</label>		
+			<input type="date" name="close-date" 
+				value="" placeholder="%locale-close-date%">
+		</div>
+		<div class="control">
+			<label>%locale-close-time%</label>		
+			<input type="time" name="close-time" 
+				value="" placeholder="%locale-close-time%">
+		</div>
+	</section>
+
+[END]
+	<div class="text-center">
+		<button>%locale-create% %locale-activity%</button>
+	</div>
+	<br>
+</form>

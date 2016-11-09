@@ -49,13 +49,16 @@ class Locale
 	public function load()
 	{		
 		$keys = func_get_args();
+		if (empty($keys)) {
+			return;
+		}
 		foreach($keys as $key) {			
 			$file = "{$this->path}/$key.php";
 			if (file_exists($file)) {
 				$locale = include $file;
 				$this->data = array_merge($this->data, $locale);
 			} else {
-				trigger_error("No encuentra file $file");
+				trigger_error("No encuentra file '$file'");
 			}
 		}
 	}

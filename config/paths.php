@@ -2,13 +2,12 @@
 
 /*
  * URLS y Carpetas.
- * TODO: Ver si queda más claro distribuyendo las constantes en cada archivo. 
  */
 
 // URL a la home.
 define ('HOME', '/enrolme');
 
-// URL ABSOLUTA, para facilitar enlaces
+// URL completa, para facilitar compartir enlaces
 $p = strtolower($_SERVER['SERVER_PROTOCOL']);
 $p = substr($p, 0, strpos($p,'/'));
 define ('HOST', "$p://".$_SERVER['HTTP_HOST'].HOME );

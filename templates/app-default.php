@@ -12,6 +12,8 @@
 -->
 	<head>
 		<meta charset="UTF-8">
+		<title>ENROL ME!</title>
+		<link rel="icon" href="<?php echo HOME ?>/img/sonimatec.ico" type="image/x-icon">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="<?php echo HOME ?>/css/style.css">
 		<link rel="stylesheet" href="<?php echo HOME ?>/css/icomoon/style.css">
@@ -20,7 +22,7 @@
 	<body>
 
 		<header>
-
+					
 			<a class="brand" href="<?php echo HOME ?>">
 				ENROL ME! <span class="status">alfa</span>
 			</a>
@@ -31,19 +33,10 @@
 					<a data-target="header nav.panel" 
 						class="action close-panel icon-close"></a>					
 				</div>
-				<a class="action" href="<?php echo HOME ?>">
-					<span class="icon-home"></span>
-					<span>Home</span>
-				</a>
-				<!--a class="action" href="<?php echo HOME ?>/activities">
-					<span class="icon-list-ul"></span>
-					<span>Actividades</span>
-				</a-->
+				<?php $this->navMain() ?>
 			</nav>
-
 			<a data-target="header nav.panel" 
 				class="action open-panel icon-navicon large"></a>
-
 		</header>
 
 		<main>

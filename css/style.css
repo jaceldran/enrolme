@@ -241,6 +241,18 @@ th, td {
   padding: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
 
+.toolbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  position: fixed;
+  right: 0;
+  width: 100%; }
+  .toolbar > .title {
+    font-size: 120%; }
+  .toolbar > * {
+    margin-right: 15px; }
+  .toolbar + form {
+    margin-top: 50px; }
+
 .text-center {
   text-align: center; }
 
@@ -256,9 +268,15 @@ th, td {
   min-width: 1.7em;
   font-size: 80%;
   font-weight: bold; }
+  .count.small {
+    font-size: 70%;
+    line-height: 1.15; }
 
 .float-right {
   float: right; }
+
+.float-left {
+  float: left; }
 
 .gutter {
   padding: 15px; }
@@ -283,6 +301,9 @@ th, td {
 
 .no-padding-right {
   padding-right: 0; }
+
+.no-screen {
+  display: none; }
 
 th.wauto, td.wauto {
   width: 1%;
@@ -334,5 +355,11 @@ button.primary:hover, .button.primary:hover {
 
 a {
   color: #369; }
+
+.toolbar {
+  background-color: cadetblue;
+  background-color: #999;
+  border-width: 0;
+  color: #fff; }
 
 /*# sourceMappingURL=style.css.map */

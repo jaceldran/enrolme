@@ -1,5 +1,8 @@
 [INI]
 <style>
+	.activity {
+		
+	}
 	.activity > .date {
 		float: left;
 		margin-right: 15px;
@@ -25,9 +28,19 @@
 	.month {font-size: 90%; text-transform: uppercase;}
 </style>
 
+<nav class="toolbar">
+	<a href="%home%" class="button wauto">
+		<span class="icon-arrow-left"></span>
+	</a>
+	<span class="title">
+		%locale-enrolments% <span class="count">%count-enrollers%</span>
+	</span>
+</nav>
 
-<div class="activity gutter">
-	<a class="icon-cog float-right button small wauto"></a>
+<div class="-no-screen activity gutter -no-padding-left">
+	<button class="float-right wauto no-screen">
+		<span class="icon-cog"></span>
+	</button>
 	<div class="date">
 		<div class="year">%render-start-year%</div>
 		<div class="day">%render-start-day%</div>
@@ -44,17 +57,23 @@
 </div>
 
 <table>
-	<caption>
+	<!--caption>
 		%locale-enrolments% <span class="count">%count-enrollers%</span>
-	</caption>
+	</caption-->
 
 [ELM]
 <tr>
 	<!--td class="wauto text-right">%position%#</td-->
-	<td>%name% %surname%</td>
-	<td class="wauto">%email%</td>
-	<td class="wauto">%render-created%</td>
-	<td  class="wauto"><a class="button small icon-cog" href="#"></a></td>
+	<td>
+		%name% %surname%
+		<div>%email%</div>
+		<div>%render-created%</div>
+	</td>
+	<td class="wauto">
+		<button class="float-right wauto">
+			<span class="icon-cog"></span>
+		</button>
+	</td>
 </tr>
 
 [END]

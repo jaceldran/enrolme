@@ -1,0 +1,49 @@
+[INI]
+<style>
+	.activity-name {font-size: 110%;}
+	.activity-summary {font-size: 90%;}
+	.activity-duration {font-size: 90%;}
+	.action.add {
+		position: fixed;
+		bottom: 30px;
+		right: 30px;
+		padding: 0;
+		width: 50px;
+		border-radius: 50%;
+	}
+</style>
+
+<a class="button action add" href="%home%/activities/create">
+	<span class="icon-plus"></span>
+</a>
+
+<table>
+
+	<caption>		
+		%locale-activities%
+	</caption>
+
+[ELM]
+<tr>
+	<td class="">
+		<a href="%home%/activities/update/%uid%">		
+		<div class="activity-name">%name%</div>		
+		<div class="activity-summary">%summary%</div>
+		<div class="activity-duration">%render-duration%</div>
+		</a>
+	</td>
+	<td class="wauto">
+		<a href="%home%/enrollers/%uid%">
+			<span class="count">%count-enrollers%</span>
+		</a>
+	</td>
+	<!--td class="wauto">
+		<a class="button" href="%home%/activity/%uid%">
+			<span  class="icon-cog"></span>
+		</a>
+	</td-->
+
+</tr>
+[END]
+</table>
+

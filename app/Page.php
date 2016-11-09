@@ -2,12 +2,12 @@
 /*
  * Page. Controlador de páginas genéricas.
  */
-class Page
+class Page extends AppView
 {
 	/*
 	 * Constructor.
 	 */
-	function __construct()
+	/*function __construct()
 	{
 		global $app;
 		$this->app =& $app;
@@ -15,11 +15,11 @@ class Page
 		// variables de contexto útiles para renders.
 		//  - locale keys aplicadas a activity como "locale-xxx".
 		//  - dirección HOME, para enlaces.
-		$this->app->locale->load('enrolment'); 
+		//$this->app->locale->load('enrolment'); 
 		$this->context = $this->app->locale->all('locale-');
 		$this->context['home'] = HOME;
 		$this->context['host'] = HOST;
-	}
+	}*/
 
 	/*
 	 * GET enrolme/:uid
@@ -64,13 +64,21 @@ class Page
 	 */ 
 	function home()
 	{
-		$route = $this->app->request->current();
-		$template = TEMPLATES.'/view-activity-admin.html';
-		$model = new Activity();
-		$data = $model->read('*');
-		$context = $this->app->locale->all('locale-');
-		$context['home'] = HOME;
-		$view = renderview($data, $template, $context);
+
+		// TODO:
+		$r[] = '<div class="gutter box">';
+		$r[] = '<h1>' . __method__ . '</h1>';
+		$r[] = '<p>TODO: presentar opciones según perfil 
+			<em>Administrador</em> o <em>Anonymous</em></p>';
+
+		$r[] = '<h2>Administrador</h2>
+			<p><a href="activities/admin">Actividades</a></p>
+		';	
+		$r[] = '</div>';			
+		$view = implode('',$r);
+		
+		//$view .= map($this->app->response);
+
 		$this->app->response->add($view);
 		$this->app->response->html();
 	}
