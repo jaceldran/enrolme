@@ -6,7 +6,7 @@
 	.action.add {
 		position: fixed;
 		bottom: 30px;
-		right: 30px;
+		left: 30px;
 		padding: 0;
 		width: 50px;
 		border-radius: 50%;
@@ -20,29 +20,23 @@
 <table>
 
 	<caption>		
-		%locale-activities%
+		%locale-activities% %yyyy%
 	</caption>
 
 [ELM]
 <tr>
-	<td class="">
+	<td>
 		<a href="%home%/activities/update/%uid%">		
-		<div class="activity-name">%name%</div>		
-		<div class="activity-summary">%summary%</div>
-		<div class="activity-duration">%render-duration%</div>
+			<div class="activity-name">%name%</div>		
+			<div class="activity-summary">%summary%</div>
+			<div class="activity-duration">%render-duration%</div>
 		</a>
 	</td>
 	<td class="wauto">
-		<a href="%home%/enrollers/%uid%">
-			<span class="count">%count-enrollers%</span>
+		<a href="%home%/enrolments/%uid%">
+			<span class="count">%count-enrolments%</span>
 		</a>
 	</td>
-	<!--td class="wauto">
-		<a class="button" href="%home%/activity/%uid%">
-			<span  class="icon-cog"></span>
-		</a>
-	</td-->
-
 </tr>
 [END]
 </table>

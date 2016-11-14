@@ -1,9 +1,9 @@
 <?php namespace App;
 /*
- * ActivityView. 
- * Métodos relacionados con representar el modelo Activity.
+ * EnrolmentView. 
+ * Métodos relacionados con representar el modelo Enrolment.
  */
-class ActivityView extends AppView
+class EnrolmentView extends AppView
 {
 	protected $context = array(); 
 
@@ -18,19 +18,19 @@ class ActivityView extends AppView
 	/*
 	 * Vista de administración de actividades.
 	 */ 
-	function admin($data=array(), $context=array())
+	/*function admin($data=array(), $context=array())
 	{
 		$this->context += $context;
 		$template = TEMPLATES.'/activity-view-admin.html';
 		$view = renderview($data, $template, $this->context);
 		return $view;
-	}	
+	}*/	
 
 	/*
 	 * Formulario create|update.
 	 * @param {array} $data Data valores default.
 	 */ 
-	function create($data) {
+	/*function create($data) {
 		$template = TEMPLATES.'/activity-form-admin.html';
 		$this->context['redirect'] = $data['redirect'];
 		$this->context['back'] = $data['back'];
@@ -39,13 +39,13 @@ class ActivityView extends AppView
 		$data = array($data);
 		$view = renderview($data, $template, $this->context);
 		return $view;		
-	}
+	}*/
 
 	/*
 	 * Formulario update.
 	 * @param {array} $data Data de activity leído por el controlador.
 	 */ 
-	function update($data)
+	/*function update($data)
 	{
 		$template = TEMPLATES.'/activity-form-admin.html';
 		$this->context['redirect'] = $data['redirect'];
@@ -55,18 +55,16 @@ class ActivityView extends AppView
 		$data = array($data);
 		$view = renderview($data, $template, $this->context);
 		return $view;
-	}
+	}*/
 
 	/*
 	 * Vista de administración de enrolments.
 	 */ 
-	function enrolments($activity=array(), $context=array())
+	function admin($data=array(), $context=array())
 	{
 		$template = parse_ini_sections(TEMPLATES.'/enrolments-view-admin.html');
-//echo map($template);
-//die;
-		//$this->context += $context;		
-		$view = renderview($activity['enrolments'], $template, $this->context);
+		$this->context += $context;		
+		$view = renderview($data, $template, $this->context);
 		return $view;
 	}		
 

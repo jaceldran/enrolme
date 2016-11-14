@@ -20,6 +20,7 @@ $routes['/activities/admin'] = array ( // vista de acceso admin
 	, 'method' => 'viewAdmin'
 	, 'allow' => array('admin')
 );
+$routes['/activities/admin/:yyyy'] = $routes['/activities/admin'];
 
 $routes['/activities/create'] = array ( // formulario create
 	'class' => 'App\ActivityController'
@@ -43,6 +44,14 @@ $routes['POST /activities/update/:activity'] = array ( // procesar $_POST
 	'class' => 'App\ActivityController'
 	, 'method' => 'updateAdmin'
 	, 'allow' => array('admin')
+);
+
+// listado de participantes de la actividad :uid
+$routes['/enrolments/:uid'] = array (
+	'class' => 'App\EnrolmentController'
+	, 'method' => 'viewAdmin'
+	, 'allow' => array('admin')
+	//, 'javascript' => '<script src="'.HOME.'/js/enrolment.js"></script>'
 );
 
 //------------------------------------------------------------------------------

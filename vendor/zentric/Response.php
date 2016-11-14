@@ -77,6 +77,15 @@ class Response
 	}
 
 	/*
+	 * Redirect.
+	 */
+	function redirect($location)
+	{
+		header("Location: $location");
+		die();
+	}
+
+	/*
 	 * Establece los headers según tipo de contenido.
 	 * @param {string} $type => html|json|text
 	 *	Tipo de contenido a enviar 

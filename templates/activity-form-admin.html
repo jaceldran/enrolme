@@ -5,7 +5,7 @@ Formulario para CREATE y UPDATE.
 [INI]
 
 <nav class="toolbar">
-	<a href="%redirect%" class="button wauto">
+	<a href="%back%" class="button wauto">
 		<span class="icon-arrow-left"></span>
 	</a>
 	<span class="title">
@@ -18,8 +18,10 @@ Formulario para CREATE y UPDATE.
 [ELM]
 
 	<input type="hidden" name="uid" value="%uid%">
+	<input type="hidden" name="action" value="%action%">
 	<input type="hidden" name="redirect" value="%redirect%">
 
+	<!-- actividad -->
 	<header>%locale-activity%</header>
 	<section>
 		<div class="control">
@@ -31,6 +33,10 @@ Formulario para CREATE y UPDATE.
 			<textarea class="" name="summary" 
 				placeholder="%locale-summary%">%summary%</textarea>
 		</div>
+		<div class="control">
+			<label>%locale-places%</label>		
+			<input class="" type="number" name="places" value="%places%" placeholder="%locale-places%">
+		</div>		
 	</section>
 
 	<!-- duración -->
@@ -38,52 +44,51 @@ Formulario para CREATE y UPDATE.
 	<section class="inline">
 		<div class="control">
 			<label>%locale-start-date%</label>		
-			<input type="date" name="start-date" 
-				value="%render-start-date%" placeholder="%locale-start-date%">
+			<input type="date" name="start-date" value="%iso-start-date%">
 		</div>
 		<div class="control">
 			<label>%locale-start-time%</label>		
 			<input type="time" name="start-time" 
-				value="%render-start-time%" placeholder="%locale-start-time%">
+				value="%iso-start-time%" placeholder="%locale-start-time%">
 		</div>
 	</section>	
 	<section class="inline">
 		<div class="control">
 			<label>%locale-end-date%</label>		
 			<input type="date" name="end-date" 
-				value="%render-end-date%" placeholder="%locale-end-date%">
+				value="%iso-end-date%" placeholder="%locale-end-date%">
 		</div>
 		<div class="control">
 			<label>%locale-end-time%</label>		
 			<input type="time" name="end-time" 
-				value="%render-end-time%" placeholder="%locale-end-time%">
+				value="%iso-end-time%" placeholder="%locale-end-time%">
 		</div>
 	</section>
 
 	<!-- inscripción -->
-<header>%locale-enrolment%</header>
+	<header>%locale-enrolment%</header>
 	<section class="inline">
 		<div class="control">
 			<label>%locale-open-date%</label>		
 			<input type="date" name="open-date" 
-				value="%render-open-date%" placeholder="%locale-open-date%">
+				value="%iso-open-date%" placeholder="%locale-open-date%">
 		</div>
 		<div class="control">
 			<label>%locale-open-time%</label>
 			<input type="time" name="open-time" 
-				value="%render-open-time%" placeholder="%locale-open-time%">
+				value="%iso-open-time%" placeholder="%locale-open-time%">
 		</div>
 	</section>	
 	<section class="inline">
 		<div class="control">
 			<label>%locale-close-date%</label>		
 			<input type="date" name="close-date" 
-				value="%render-close-date%" placeholder="%locale-close-date%">
+				value="%iso-close-date%" placeholder="%locale-close-date%">
 		</div>
 		<div class="control">
 			<label>%locale-close-time%</label>		
 			<input type="time" name="close-time" 
-				value="%render-close-time%" placeholder="%locale-close-time%">
+				value="%iso-close-time%" placeholder="%locale-close-time%">
 		</div>
 	</section>
 

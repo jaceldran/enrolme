@@ -18,9 +18,10 @@
 	 , 'surname' => 'Apellidos'
 	 , 'email' => 'Email'
 	 , 'phone' => 'Teléfono'
+
 	 // form activity
 	 , 'summary' => 'Resumen'
-
+	 , 'places' => 'Plazas'
 	 , 'start-date' => 'Fecha de inicio'
 	 , 'start-time' => 'Hora de inicio'
 	 , 'end-date' => 'Fecha de finalización'

@@ -73,7 +73,6 @@ main {
   bottom: 0;
   right: 0;
   width: 100%;
-  z-index: 0;
   overflow: auto; }
 
 body > header {
@@ -244,14 +243,19 @@ th, td {
 .toolbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   position: fixed;
-  right: 0;
-  width: 100%; }
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  line-height: 60px; }
+  .toolbar > .button {
+    line-height: inherit;
+    width: 60px;
+    padding: 0; }
   .toolbar > .title {
-    font-size: 120%; }
+    font-size: 110%;
+    line-height: inherit; }
   .toolbar > * {
-    margin-right: 15px; }
-  .toolbar + form {
-    margin-top: 50px; }
+    margin-right: 10px; }
 
 .text-center {
   text-align: center; }
@@ -357,9 +361,7 @@ a {
   color: #369; }
 
 .toolbar {
-  background-color: cadetblue;
-  background-color: #999;
-  border-width: 0;
+  background-color: #444;
   color: #fff; }
 
 /*# sourceMappingURL=style.css.map */

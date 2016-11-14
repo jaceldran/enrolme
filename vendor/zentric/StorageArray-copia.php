@@ -3,7 +3,7 @@
  * Driver de archivos de almacenamiento en disco.
  * Indicado para volúmenes de datos no excesivos.
  * Pensado para un contenedor de elementos que se almacenan el el data.
- */ 
+ */
 class StorageArray
 {
 	protected $key;
@@ -18,6 +18,7 @@ class StorageArray
 		$this->key = $settings['key'];
 		$this->folder = $settings['folder']; 
 		$this->file = $this->path();
+		$this->build($settings);
 	}
 
 	/*
@@ -30,95 +31,8 @@ class StorageArray
 		if (empty($key)) $key = $this->key;
 		return $this->folder."/$key.php";
 	}
-	
-	/*
-	 * Create.
-	 */
-	function create($values=array(), $file=null)
-	{
-		if (empty($file)) {
-			$file = $this->file;
-		}
-		if (file_exists($file)) {
-			return;
-		}		
-		$content = array (
-			'file' => basename($this->file)
-			, 'created' => date('Y-m-d H:i:s')
-			, 'updated' => null
-		);
-		$values = array_merge($content, $values);
-		$created = $this->update($values, $file);
-		return $created;
-	}
 
-	/*
-	 * Read.
-	 * @param {string} $file Ruta física del archivo a leer. 
-	 */
-	function read($file=null)
-	{
-		if (empty($file)) {
-			$file = $this->file;
-		}
-		$content = array();
-		if (file_exists($file)) {
-			$content = include $file;
-		}		
-		return $content;		
-	}
 
-	/*
-	 * Update.
-	 * @param {array} $values Asociativa de atributos y valores.
-	 * @param {string} $file Ruta física del archivo.
-	 * @return {boolean} Resultado de la operación.
-	 */
-	function update($values, $file=null)
-	{
-		if (empty($file)) {
-			$file = $this->file;
-		}
-		$values = array_merge($this->read($file), $values);
-		$content = '<?php return ' . var_export($values, true) . ';';
-		$updated = file_put_contents($file, $content);
-		return $updated;
-	}
-
-	/*
-	 * Registra un valor en un atributo del almacenamiento actual.
-	 * @param {string} $key Key de registro.
-	 * @param {mixed} $value Atributos y valores del elemento.
-	 * @param {string} $attr Atributo donde se añade el elemento.
-	 * @return {boolean} Resultado de la operación.
-	 */
-	function register($key, $value, $attr='data', $file=null)
-	{
-		$content = $this->read($file);
-		if (empty($content[$attr])) {
-			$content[$attr] = array();
-		}
-		$content[$attr][$key] = $value;
-		return $this->update($content);
-	}
-
-	/*
-	 * Añade un valor a un atributo del almacenamiento actual.
-	 * @param {array} $elm Atributos y valores del elemento.
-	 * @param {string} $attr Atributo donde se añade el elemento.
-	 * @return {boolean} Resultado de la operación.
-	 */
-	function add($value, $attr='data', $file=null)
-	{
-		$content = $this->read($file);
-		if (empty($content[$attr])) {
-			$content[$attr] = array();
-		}
-		$content[$attr][] = $value;
-		return $this->update($content);
-	}
-
-// REFACTORIZANDO --------------------------------------------------------------
 
 	/*
 	 * Crea un elemento nuevo en el almacenamiento actual.
@@ -138,7 +52,7 @@ class StorageArray
 	 * @param {numeric} $index
 	 *	Posición en base 0 del elemento.
 	 */
-	function OFFread($index)
+	function read($index)
 	{
 		$content = $this->content();
 		$elm = $content['data'][$index];
@@ -153,7 +67,7 @@ class StorageArray
 	 * @param {array} $values
 	 *	Array asociativa de atributos y valores a actualizar.
 	 */
-	function OFFupdate($index, $values)
+	function update($index, $values)
 	{
 		$content = $this->content();
 		$elm = $content['data'][$index];
@@ -166,7 +80,7 @@ class StorageArray
 	 * @param {numeric} $index
 	 *	Posición en base 0 del elemento.
 	 */
-	function OFFdelete($index)
+	function delete($index)
 	{
 		$content = $this->content();
 		if ($index==='*') {
@@ -185,7 +99,7 @@ class StorageArray
 	 * @param {string} $value
 	 *	Valor del atributo del elemento buscado.
 	 */
-	function OFFfind($attr, $value)
+	function find($attr, $value)
 	{
 		$content = $this->content();
 		$key = "{$this->key}-by-$attr";
@@ -202,7 +116,7 @@ class StorageArray
 	 * Es un archivo PHP que contiene un array con los datos gestionados
 	 * y otra información relativa al propio fichero.
 	 */
-	function OFFbuild($settings=array())
+	function build($settings=array())
 	{		
 		if (file_exists($this->file)) {
 			return;
@@ -224,7 +138,7 @@ class StorageArray
 	 * @param {string} $attr
 	 *	El atributo para construir el indice. No debe haber duplicados.
 	 */	
-	function OFFbuildIndex($attr)
+	function buildIndex($attr)
 	{
 		$content = $this->content();
 		$key = "{$this->key}-by-$attr";
@@ -235,8 +149,36 @@ class StorageArray
 		return $this->save($data, $file);
 	}
 
+	/*
+	 * Recupera el contenido de un archivo.
+	 * @param {string} $file
+	 *	Ruta física del archivo a leer.
+	 */
+	function content($file=null)	
+	{
+		if (empty($file)) {
+			$file = $this->file;
+		}
+		$content = include $file;
+		return $content;
+	}
 
-
-
+	/*
+	 * Guarda el contenido de un archivo.
+	 * @param {string} $content
+	 *	El contenido del archivo.
+	 * @param {string} $file
+	 *	Ruta física del archivo a guardar.
+	 * @return {boolean}
+	 *	Resultado de la operación.
+	 */
+	function save($content, $file=null)
+	{
+		if (empty($file)) {
+			$file = $this->file;
+		}
+		$content = '<?php return ' . var_export($content, true) . ';';
+		return file_put_contents($file, $content);
+	}
 
 }

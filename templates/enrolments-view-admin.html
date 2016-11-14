@@ -1,0 +1,61 @@
+[ACTIVITY]
+
+aqui va un header con la info de la activity
+
+
+[INI]
+
+<style>
+	/*.activity-name {font-size: 110%;}
+	.activity-summary {font-size: 90%;}
+	.activity-duration {font-size: 90%;}*/
+	.action.add {
+		position: fixed;
+		bottom: 30px;
+		left: 30px;
+		padding: 0;
+		width: 50px;
+		border-radius: 50%;
+	}
+</style>
+
+<nav class="toolbar">
+	<a href="%back%" class="button wauto">
+		<span class="icon-arrow-left"></span>
+	</a>
+	<span class="title">
+		%locale-enrolments%
+	</span>
+</nav>
+
+<a class="button action add" href="%home%/enrolments/create/%uid%">
+	<span class="icon-plus"></span>
+</a>
+
+<table>
+
+	<caption>%name%</caption>
+
+[ELM]
+<tr>
+	<td class="wauto text-right">%position%#</td>
+	<td>
+		%name% %surname%
+		<div>%email%</div>
+		<!--div>%render-created%</div-->
+	</td>
+	<td class="wauto">
+		<a href="#" class="button">
+			<span class="icon-cog"></span>
+		</a>
+	</td>
+	<!--td class="wauto">
+		<button class="float-right wauto">
+			<span class="icon-cog"></span>
+		</button>
+	</td-->
+</tr>
+
+[END]
+</table>
+
